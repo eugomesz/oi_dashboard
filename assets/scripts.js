@@ -378,64 +378,59 @@ var optionsArea = {
 var chartArea = new ApexCharts(document.querySelector('#area'), optionsArea);
 chartArea.render();
 
-var optionsBar = {
-  chart: {
-    type: 'bar',
-    height: 380,
-    width: '100%',
-    stacked: true,
-  },
-  plotOptions: {
-    bar: {
-      columnWidth: '45%',
-    }
-  },
-  colors: colorPalette,
+var options = {
   series: [{
-    name: "Clothing",
-    data: [42, 52, 16, 55, 59, 51, 45, 32, 26, 33, 44, 51, 42, 56],
-  }, {
-    name: "Food Products",
-    data: [6, 12, 4, 7, 5, 3, 6, 4, 3, 3, 5, 6, 7, 4],
-  }],
-  labels: [10,11,12,13,14,15,16,17,18,19,20,21,22,23],
-  xaxis: {
-    labels: {
-      show: false
-    },
-    axisBorder: {
-      show: false
-    },
-    axisTicks: {
-      show: false
-    },
+  name: 'Net Profit',
+  data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+}, {
+  name: 'Revenue',
+  data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+}, {
+  name: 'Free Cash Flow',
+  data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+}],
+  chart: {
+  type: 'bar',
+  height: 350
+},
+plotOptions: {
+  bar: {
+    horizontal: false,
+    columnWidth: '55%',
+    borderRadius: 5,
+    borderRadiusApplication: 'end'
   },
-  yaxis: {
-    axisBorder: {
-      show: false
-    },
-    axisTicks: {
-      show: false
-    },
-    labels: {
-      style: {
-        colors: '#78909c'
-      }
-    }
-  },
+},
+dataLabels: {
+  enabled: false
+},
+stroke: {
+  show: true,
+  width: 2,
+  colors: ['transparent']
+},
+xaxis: {
+  categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+},
+yaxis: {
   title: {
-    text: 'Monthly Sales',
-    align: 'left',
-    style: {
-      fontSize: '18px'
+    text: '$ (thousands)'
+  }
+},
+fill: {
+  opacity: 1
+},
+tooltip: {
+  y: {
+    formatter: function (val) {
+      return "$ " + val + " thousands"
     }
   }
-
 }
+};
 
-var chartBar = new ApexCharts(document.querySelector('#bar'), optionsBar);
-chartBar.render();
-
+var chart = new ApexCharts(document.querySelector("#grafico_coluna"), options);
+chart.render();
 
 
 
