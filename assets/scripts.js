@@ -33,361 +33,268 @@ var sparklineData = [47, 45, 54, 38, 56, 24, 65, 31, 37, 39, 62, 51, 35, 41, 35,
 //var colorPalette = ['#01BFD6', '#5564BE', '#F7A600', '#EDCD24', '#F74F58'];
 var colorPalette = ['#00D8B6','#008FFB',  '#FEB019', '#FF4560', '#775DD0']
 
-var spark1 = {
-  chart: {
-    id: 'sparkline1',
-    group: 'sparklines',
-    type: 'area',
-    height: 160,
-    sparkline: {
-      enabled: true
-    },
-  },
-  stroke: {
-    curve: 'straight'
-  },
-  fill: {
-    opacity: 1,
-  },
+var optionsDiariasQLD = {
   series: [{
-    name: 'Sales',
-    data: randomizeArray(sparklineData)
-  }],
-  labels: [...Array(24).keys()].map(n => `2018-09-0${n+1}`),
-  yaxis: {
-    min: 0
-  },
-  xaxis: {
-    type: 'datetime',
-  },
-  colors: ['#DCE6EC'],
-  title: {
-    text: '$424,652',
-    offsetX: 30,
-    style: {
-      fontSize: '24px',
-      cssClass: 'apexcharts-yaxis-title'
-    }
-  },
-  subtitle: {
-    text: 'Sales',
-    offsetX: 30,
-    style: {
-      fontSize: '14px',
-      cssClass: 'apexcharts-yaxis-title'
-    }
-  }
-}
-
-var spark2 = {
+  name: 'Inflation',
+  data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
+}],
   chart: {
-    id: 'sparkline2',
-    group: 'sparklines',
-    type: 'area',
-    height: 160,
-    sparkline: {
-      enabled: true
+  height: 350,
+  type: 'bar',
+},
+colors: ['#01BFD6'],
+plotOptions: {
+  bar: {
+    borderRadius: 10,
+    dataLabels: {
+      position: 'top', // top, center, bottom
     },
-  },
-  stroke: {
-    curve: 'straight'
-  },
-  fill: {
-    opacity: 1,
-  },
-  series: [{
-    name: 'Expenses',
-    data: randomizeArray(sparklineData)
-  }],
-  labels: [...Array(24).keys()].map(n => `2018-09-0${n+1}`),
-  yaxis: {
-    min: 0
-  },
-  xaxis: {
-    type: 'datetime',
-  },
-  colors: ['#DCE6EC'],
-  title: {
-    text: '$235,312',
-    offsetX: 30,
-    style: {
-      fontSize: '24px',
-      cssClass: 'apexcharts-yaxis-title'
-    }
-  },
-  subtitle: {
-    text: 'Expenses',
-    offsetX: 30,
-    style: {
-      fontSize: '14px',
-      cssClass: 'apexcharts-yaxis-title'
-    }
   }
-}
-
-var spark3 = {
-  chart: {
-    id: 'sparkline3',
-    group: 'sparklines',
-    type: 'area',
-    height: 160,
-    sparkline: {
-      enabled: true
-    },
+},
+dataLabels: {
+  enabled: true,
+  formatter: function (val) {
+    return val + "%";
   },
-  stroke: {
-    curve: 'straight'
-  },
-  fill: {
-    opacity: 1,
-  },
-  series: [{
-    name: 'Profits',
-    data: randomizeArray(sparklineData)
-  }],
-  labels: [...Array(24).keys()].map(n => `2018-09-0${n+1}`),
-  xaxis: {
-    type: 'datetime',
-  },
-  yaxis: {
-    min: 0
-  },
-  colors: ['#008FFB'],
-  //colors: ['#5564BE'],
-  title: {
-    text: '$135,965',
-    offsetX: 30,
-    style: {
-      fontSize: '24px',
-      cssClass: 'apexcharts-yaxis-title'
-    }
-  },
-  subtitle: {
-    text: 'Profits',
-    offsetX: 30,
-    style: {
-      fontSize: '14px',
-      cssClass: 'apexcharts-yaxis-title'
-    }
+  offsetY: -20,
+  style: {
+    fontSize: '12px',
+    colors: ["#304758"]
   }
-}
+},
 
-var monthlyEarningsOpt = {
-  chart: {
-    type: 'area',
-    height: 260,
-    background: '#eff4f7',
-    sparkline: {
-      enabled: true
-    },
-    offsetY: 20
+xaxis: {
+  categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  position: 'top',
+  axisBorder: {
+    show: false
   },
-  stroke: {
-    curve: 'straight'
+  axisTicks: {
+    show: false
   },
-  fill: {
-    type: 'solid',
-    opacity: 1,
-  },
-  series: [{
-    data: randomizeArray(sparklineData)
-  }],
-  xaxis: {
-    crosshairs: {
-      width: 1
-    },
-  },
-  yaxis: {
-    min: 0,
-    max: 130
-  },
-  colors: ['#dce6ec'],
-
-  title: {
-    text: 'Total Earned',
-    offsetX: -30,
-    offsetY: 100,
-    align: 'right',
-    style: {
-      color: '#7c939f',
-      fontSize: '16px',
-      cssClass: 'apexcharts-yaxis-title'
-    }
-  },
-  subtitle: {
-    text: '$135,965',
-    offsetX: -30,
-    offsetY: 100,
-    align: 'right',
-    style: {
-      color: '#7c939f',
-      fontSize: '24px',
-      cssClass: 'apexcharts-yaxis-title'
-    }
-  }
-}
-
-
-new ApexCharts(document.querySelector("#spark1"), spark1).render();
-new ApexCharts(document.querySelector("#spark2"), spark2).render();
-new ApexCharts(document.querySelector("#spark3"), spark3).render();
-
-var monthlyEarningsChart = new ApexCharts(document.querySelector("#monthly-earnings-chart"), monthlyEarningsOpt);
-
-
-var optionsArea = {
-  chart: {
-    height: 340,
-    type: 'area',
-    zoom: {
-      enabled: false
-    },
-  },
-  stroke: {
-    curve: 'straight'
-  },
-  colors: colorPalette,
-  series: [
-    {
-      name: "Blog",
-      data: [{
-        x: 0,
-        y: 0
-      }, {
-        x: 4,
-        y: 5
-      }, {
-        x: 5,
-        y: 3
-      }, {
-        x: 9,
-        y: 8
-      }, {
-        x: 14,
-        y: 4
-      }, {
-        x: 18,
-        y: 5
-      }, {
-        x: 25,
-        y: 0
-      }]
-    },
-    {
-      name: "Social Media",
-      data: [{
-        x: 0,
-        y: 0
-      }, {
-        x: 4,
-        y: 6
-      }, {
-        x: 5,
-        y: 4
-      }, {
-        x: 14,
-        y: 8
-      }, {
-        x: 18,
-        y: 5.5
-      }, {
-        x: 21,
-        y: 6
-      }, {
-        x: 25,
-        y: 0
-      }]
-    },
-    {
-      name: "External",
-      data: [{
-        x: 0,
-        y: 0
-      }, {
-        x: 2,
-        y: 5
-      }, {
-        x: 5,
-        y: 4
-      }, {
-        x: 10,
-        y: 11
-      }, {
-        x: 14,
-        y: 4
-      }, {
-        x: 18,
-        y: 8
-      }, {
-        x: 25,
-        y: 0
-      }]
-    }
-  ],
-  fill: {
-    opacity: 1,
-  },
-  title: {
-    text: 'Daily Visits Insights',
-    align: 'left',
-    style: {
-      fontSize: '18px'
-    }
-  },
-  markers: {
-    size: 0,
-    style: 'hollow',
-    hover: {
-      opacity: 5,
-    }
-  },
-  tooltip: {
-    intersect: true,
-    shared: false,
-  },
-  xaxis: {
-    tooltip: {
-      enabled: false
-    },
-    labels: {
-      show: false
-    },
-    axisTicks: {
-      show: false
-    }
-  },
-  yaxis: {
-    stepSize: 3,
-    axisBorder: {
-      show: false
-    },
-    axisTicks: {
-      show: false
-    },
-    labels: {
-      style: {
-        colors: '#78909c'
+  crosshairs: {
+    fill: {
+      type: 'gradient',
+      gradient: {
+        colorFrom: '#D8E3F0',
+        colorTo: '#BED1E6',
+        stops: [0, 100],
+        opacityFrom: 0.4,
+        opacityTo: 0.5,
       }
     }
   },
-  legend: {
+  tooltip: {
+    enabled: true,
+  }
+},
+yaxis: {
+  axisBorder: {
     show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: false,
+    formatter: function (val) {
+      return val + "%";
+    }
+  }
+
+},
+title: {
+  text: 'Qualidade do Ar',
+  floating: true,
+  offsetY: 330,
+  align: 'center',
+  style: {
+    color: '#444'
   }
 }
+};
 
-var chartArea = new ApexCharts(document.querySelector('#area'), optionsArea);
-chartArea.render();
+var chart = new ApexCharts(document.querySelector("#DiariasQLD"), optionsDiariasQLD);
+chart.render();
 
-var options = {
+var optionsDiariasTemp = {
   series: [{
-  name: 'Net Profit',
-  data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+  name: 'Inflation',
+  data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
+}],
+  chart: {
+  height: 350,
+  type: 'bar',
+},
+colors: ['#304'],
+plotOptions: {
+  bar: {
+    borderRadius: 10,
+    dataLabels: {
+      position: 'top', // top, center, bottom
+    },
+  }
+},
+dataLabels: {
+  enabled: true,
+  formatter: function (val) {
+    return val + "%";
+  },
+  offsetY: -20,
+  style: {
+    fontSize: '12px',
+    colors: ["#304758"]
+  }
+},
+
+xaxis: {
+  categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  position: 'top',
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  crosshairs: {
+    fill: {
+      type: 'gradient',
+      gradient: {
+        colorFrom: '#D8E3F0',
+        colorTo: '#BED1E6',
+        stops: [0, 100],
+        opacityFrom: 0.4,
+        opacityTo: 0.5,
+      }
+    }
+  },
+  tooltip: {
+    enabled: true,
+  }
+},
+yaxis: {
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: false,
+    formatter: function (val) {
+      return val + "%";
+    }
+  }
+
+},
+title: {
+  text: 'Temperatura',
+  floating: true,
+  offsetY: 330,
+  align: 'center',
+  style: {
+    color: '#444'
+  }
+}
+};
+
+var chart = new ApexCharts(document.querySelector("#DiariasTemp"), optionsDiariasTemp);
+chart.render();
+
+var optionsDiariasUmidade = {
+  series: [{
+  name: 'Inflation',
+  data: [2.3, 3.1, 4.0, 10.1, 4.0, 3.6, 3.2, 2.3, 1.4, 0.8, 0.5, 0.2]
+}],
+  chart: {
+  height: 350,
+  type: 'bar',
+},
+colors: ['#777'],
+plotOptions: {
+  bar: {
+    borderRadius: 10,
+    dataLabels: {
+      position: 'top', // top, center, bottom
+    },
+  }
+},
+dataLabels: {
+  enabled: true,
+  formatter: function (val) {
+    return val + "%";
+  },
+  offsetY: -20,
+  style: {
+    fontSize: '12px',
+    colors: ["#304758"]
+  }
+},
+
+xaxis: {
+  categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+  position: 'top',
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false
+  },
+  crosshairs: {
+    fill: {
+      type: 'gradient',
+      gradient: {
+        colorFrom: '#D8E3F0',
+        colorTo: '#BED1E6',
+        stops: [0, 100],
+        opacityFrom: 0.4,
+        opacityTo: 0.5,
+      }
+    }
+  },
+  tooltip: {
+    enabled: true,
+  }
+},
+yaxis: {
+  axisBorder: {
+    show: false
+  },
+  axisTicks: {
+    show: false,
+  },
+  labels: {
+    show: false,
+    formatter: function (val) {
+      return val + "%";
+    }
+  }
+
+},
+title: {
+  text: 'Umidade',
+  floating: true,
+  offsetY: 330,
+  align: 'center',
+  style: {
+    color: '#444'
+  }
+}
+};
+
+var chart = new ApexCharts(document.querySelector("#DiariasUmidade"), optionsDiariasUmidade);
+chart.render();
+
+var optionsColunas = {
+  series: [{
+  name: 'Qualidade do Ar',
+  data: [44, 55, 57, 56, 61]
 }, {
-  name: 'Revenue',
-  data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+  name: 'Temperatura',
+  data: [76, 85, 101, 98, 87]
 }, {
-  name: 'Free Cash Flow',
-  data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+  name: 'Umidade',
+  data: [35, 41, 36, 26, 45]
 }],
   chart: {
   type: 'bar',
@@ -410,7 +317,7 @@ stroke: {
   colors: ['transparent']
 },
 xaxis: {
-  categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+  categories: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex'],
 },
 yaxis: {
   title: {
@@ -423,13 +330,21 @@ fill: {
 tooltip: {
   y: {
     formatter: function (val) {
-      return "$ " + val + " thousands"
+      return "$ " + val.toFixed(2) + " thousands"
     }
   }
-}
+},
+title: {
+  floating: false,
+  text: 'Status da Semana',
+  align: 'left',
+  style: {
+    fontSize: '18px'
+  }
+},
 };
 
-var chart = new ApexCharts(document.querySelector("#grafico_coluna"), options);
+var chart = new ApexCharts(document.querySelector("#grafico_coluna"), optionsColunas);
 chart.render();
 
 
@@ -443,9 +358,7 @@ function trigoSeries(cnt, strength) {
   return data;
 }
 
-
-
-var optionsLine = {
+var optionsTemp = {
   chart: {
     height: 340,
     type: 'line',
@@ -462,17 +375,17 @@ var optionsLine = {
   colors: colorPalette,
   series: [
     {
-      name: "Day Time",
+      name: "Dia",
       data: trigoSeries(52, 20)
     },
     {
-      name: "Night Time",
+      name: "Noite",
       data: trigoSeries(52, 27)
     },
   ],
   title: {
     floating: false,
-    text: 'Customers',
+    text: 'Variação de Temperatura',
     align: 'left',
     style: {
       fontSize: '18px'
@@ -528,7 +441,7 @@ var optionsLine = {
 
 }
 
-var chartLine = new ApexCharts(document.querySelector('#line'), optionsLine);
+var chartLine = new ApexCharts(document.querySelector('#line'), optionsTemp);
 
 // a small hack to extend height in website sample dashboard
 chartLine.render().then(function () {
@@ -588,13 +501,13 @@ dataLabels: {
 },
 title: {
   floating: false,
-  text: 'Pizza Flavia',
+  text: 'Níveis: Qualidade do Ar',
   align: 'left',
   style: {
     fontSize: '18px'
   }
 },
-labels: ['Team A', 'Team B', 'Team C', 'Team D', 'Team E'],
+labels: ['Bom', 'Moderado', 'Insalubre', 'Muito insalubre', 'Perigoso'],
 responsive: [{
   breakpoint: 480,
   options: {
@@ -608,7 +521,7 @@ responsive: [{
 }]
 };
 
-var chart = new ApexCharts(document.querySelector("#pie_example"), options);
+var chart = new ApexCharts(document.querySelector("#niveis"), options);
 chart.render();
 
 /* Fim grafico de pizza */
