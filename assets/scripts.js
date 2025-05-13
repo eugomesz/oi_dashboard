@@ -495,7 +495,7 @@ var options = {
 dataLabels: {
   enabled: true,
   formatter: function (val) {
-    return val + "%"
+    return val.toFixed(2)  + "%"
   },
 
 },
