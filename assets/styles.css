@@ -1,3 +1,6 @@
+header{
+  background-color:#529fcc;
+}
 
 body {
   background-color: #eff4f7;
@@ -13,6 +16,7 @@ h1, h2, h3, h4, h5, h6, strong {
   max-width: 1070px;
   margin: 0 auto;
 }
+
 
 #topnav {
   background: #37474f;
@@ -130,6 +134,13 @@ h1, h2, h3, h4, h5, h6, strong {
   right: 55px;
   top: 25px;
   z-index: 10;
+}
+
+.navbar-nav .nav-link {
+  color: rgb(235, 235, 235) !important;
+}
+.navbar-nav .nav-link:hover {
+  color: rgb(168, 181, 209) !important;
 }
 
 @media screen and (max-width:760px) {
