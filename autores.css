@@ -1,0 +1,121 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: gainsboro;
+  }
+  
+  /* Estilo do cabeçalho */
+  .header {
+      background-color: gainsboro;
+      margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: linear-gradient(to right, orange, blue);
+    color: white;
+  }
+  
+  /* Espaço da logo */
+  .logo img {
+    height: 75px;
+    width: 75px;
+  }
+  
+  /* Navegação */
+  .nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .card-group {
+    width: 500px;
+    height: 2x00px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+  }
+  /* Reset básico */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: gainsboro;
+  }
+  
+  /* Estilo do cabeçalho */
+  .header {
+      background-color: gainsboro;
+      margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: linear-gradient(to right, cyan, blue );
+    color: white;
+  }
+  
+  /* Espaço da logo */
+  .logo img {
+    height: 75px;
+    width: 75px;
+  }
+  
+  /* Navegação */
+  .nav ul {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  .contact-card {
+    max-width: 800px;
+    margin: 50px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  .contact-item {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  .contact-item:last-child {
+    border-bottom: none;
+  }
+  .email {
+    font-size: 1.1rem;
+    color: #007bff;
+    margin-bottom: 5px;
+  }
+  .name {
+    font-size: 0.9rem;
+    color: #666;
+  }
